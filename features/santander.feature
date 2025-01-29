@@ -1,7 +1,12 @@
 Feature: cotizacion de seguros autocompara
 
-    @santander01
-    Scenario: como usuario deseo cotizar mi auto particular en autocompara
-        Given I am on the Santander Landing Page
-        When I fill the vehicle year
-        And I fill the vehicle brand
+    Feature: cotizacion de seguros autocompara
+
+    @santander
+    Scenario: cotizacion de seguro de auto Santander
+        Given I am on the santander quoter home page
+        When I fill my car year
+        When I select my car brand
+        When I fill the personal data form
+        Then I can see the quoter results
+        When I view my car info and extract it

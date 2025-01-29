@@ -1,45 +1,43 @@
-// banorte.steps.js
-
 // CONST y REQUIRE en lugar de IMPORT
-import {Given, When, Then} from '@wdio/cucumber-framework';
-import {expect, $, browser} from '@wdio/globals';
-import fs from 'fs';
-import { createObjectCsvWriter } from 'csv-writer';
+const {Given, When, Then} = require('@wdio/cucumber-framework'); 
+const {expect, $, browser} = require('@wdio/globals'); 
+const fs = require('fs');
+const { createObjectCsvWriter } = require('csv-writer'); 
 
-import CotizadorPage from '../pageobjects/cotizador.page.js';
+const BanortePage = require ('../pageobjects/banorte.page.js'); 
 console.log('Loaded step definitions');
 
 const pages = {
-    cotizador: CotizadorPage
+    banorte: BanortePage
 }
 
 Given('I am on the banorte quoter home page', async()=>{
-    await pages.cotizador.open();
+    await pages.banorte.open();
 });
 
 When('I select my car type', async()=>{
-    await CotizadorPage.selectAutoCarType();
+    await BanortePage.selectAutoCarType();
 }); 
 
 When('I select my car year', async()=>{
-    await CotizadorPage.selectAutoYearByVisibleText('2019');
+    await BanortePage.selectAutoYearByVisibleText('2019');
 });
 
 When ('I select my car brand', async()=>{
-    await CotizadorPage.selectingAutoBrand('HONDA CIVIC');
+    await BanortePage.selectingAutoBrand('HONDA CIVIC');
     await browser.pause(5000);
 });
 
 When('I select my car version', async()=>{
     await browser.pause(5000);
-    await CotizadorPage.selectAutoModelByVisibleText('CIVIC EX SEDAN CA CE | STD | 4 puertas | 4 cilindros | 5 pasajeros');
+    await BanortePage.selectAutoModelByVisibleText('CIVIC EX SEDAN CA CE | STD | 4 puertas | 4 cilindros | 5 pasajeros');
     
 });
 
 When('I introduce my cp code for continue with the second phase', async()=>{
-    await CotizadorPage.inputCp.setValue('53660');
+    await BanortePage.inputCp.setValue('53660');
     await browser.pause(5000);
-    await CotizadorPage.btnContinue.click();
+    await BanortePage.btnContinue.click();
 }); 
 
 Then('I can see the personal data form', async() => {
@@ -48,7 +46,7 @@ Then('I can see the personal data form', async() => {
 })
 
 When ('I fill the personal data form', async() =>{
-    await CotizadorPage.fillPersonalInfo();
+    await BanortePage.fillPersonalInfo();
     await browser.pause(10000);
 });
 
@@ -59,7 +57,7 @@ Then('I can see the quoter results' , async() => {
 
 When('I view my car info and extract it', async()=>{
     await browser.pause(5000);
-    await CotizadorPage.btnViewCarInfo.click();
+    await BanortePage.btnViewCarInfo.click();
     await browser.pause(5000);
 
     const carTypeInfo = await $('//*[@id="collapseOne"]/div/div[1]/div[2]')

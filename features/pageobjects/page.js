@@ -24,6 +24,10 @@ module.exports = class Page {
         return browser.url('https://www.segurosbanorte.com.mx/cotizacion-autos/datos-personales') //segunda página diferente
     }
 
+    openMapfre(){
+        return browser.url('https://mapfre.rastreator.mx/')
+    }
+
     openInbursa(){
         return browser.url('')
     }
@@ -31,6 +35,7 @@ module.exports = class Page {
     openAxa(){
         return browser.url('')
     }
+
 
 
 }
