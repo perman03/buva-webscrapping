@@ -27,6 +27,9 @@ module.exports = class Page {
     openMapfre(){
         return browser.url('https://mapfre.rastreator.mx/')
     }
+    openGnp(){
+        return browser.url('https://www.gnp.com.mx/content/gnp-pp/mx/es/cotizador-auto/datos-vehiculo.html')
+    }
 
     openInbursa(){
         return browser.url('')
