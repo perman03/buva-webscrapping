@@ -12,16 +12,18 @@ Given('I am on the santander quoter home page', async() => {
     await pages.santander.openAutocompara();
 });
 
-
+When('I select the type of car', async() => {
+        await SantanderPage.selectTypeCarOption();
+})
 
 When('I fill my car year', async() => {
     await browser.pause(10000);
-    await SantanderPage.fillDataYear("2024");
+    await SantanderPage.fillDataYear();
     await browser.pause(10000);
 });
 
 When('I select my car brand', async() => {
-    await SantanderPage.fillDataBrand("SWIFT BOOSTERJET SPORT AUT 4CIL 1.4L");
+    await SantanderPage.fillDataBrand();
 });
 
 
