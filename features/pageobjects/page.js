@@ -38,6 +38,12 @@ module.exports = class Page {
     openAxa(){
         return browser.url('')
     }
+    openInter(){
+        return browser.url('https://www.inter.mx/landing');
+    }
+    openCiti(){
+        return browser.url('https://www.citibanamexchubb.com/autov/Seguro-de-auto/cotizador/informacion-auto/year?lid=MX%7Cseguros%7Cseguro-de-auto-protegido-TextoTop-Acquisition-IrSeguroDeAuto-ES');
+    }
 
 
 
